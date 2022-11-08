@@ -120,15 +120,36 @@ nomPrenom = nom + prenom #Renvoie TurcatBenjamin
 nomPrenom = nom + " " + prenom # Revoie Turcat Benjamin
 intergerValue = 342
 stringIntergerValue = str(342) #Renvoie "342" au lieu de 342
+
+tableauMultiType= ["Benjamin", True, tablo, 4 > 2, None]
+tableauDim = [0, 1, 2, 3]
+tableauDim2 = [ 0, 5, 6, 3, 7]
+tableauMultiDim = [tableauDim,tableauDim2]
+tableauMultiDim[1][2]#Renvoi 6
+
+tableauCleVal = {"Cle" : "Valeur"}
+tableauCleVal["Cle"]#Renvoi "Valeur"
+
+
+
 #Exo
 #Faire une fonction qui concatene 2 chaines de caractere, les séparants par une virgule
+
 
 #EXO 2:
 #Faire une fonction qui itere sur tous les index d'un tableau renvoyant un chaine de caractere
 #avec l'enssemble des occuration d'un chiffre e.g :
 #pour le tableau =[0,1,1,1,0,1,1,0,1]
 #la fonction (tableau,0) doit renvoyer "0,4,7" n'hesitez pas a implementer la premiere fonction
-def indexTableau(tab):
-    i = 0
-    while i < len(tab):
-        print (tab[i])
+
+#EXO 3:
+#Tel que
+listeUtilisateur = {
+    "Benjamin" : "motdepasse",
+    "Michel" : "password",
+    "Toto" : "12345",
+    "JoeMama" : "azerty",
+}
+#Ecrire une fonction login(userName,password,listUser) permettant d'afficher un message de connexion si
+#le combo user/password est bon
+
