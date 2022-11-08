@@ -142,7 +142,11 @@ tableauCleVal["Cle"]#Renvoi "Valeur"
 #pour le tableau =[0,1,1,1,0,1,1,0,1]
 #la fonction (tableau,0) doit renvoyer "0,4,7" n'hesitez pas a implementer la premiere fonction
 
+
 #EXO 3:
+#Faire une fonction afficher un message
+
+#EXO 4:
 #Tel que
 listeUtilisateur = {
     "Benjamin" : "motdepasse",
