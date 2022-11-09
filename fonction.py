@@ -135,16 +135,73 @@ tableauCleVal["Cle"]#Renvoi "Valeur"
 #Exo
 #Faire une fonction qui concatene 2 chaines de caractere, les séparants par une virgule
 
+def separer(mot1,mot2):
+    #renvoi les deux mots separer par une virgule
+    return(mot1 + ',' +mot2)
+
+#Correction Exo1:
+#Definir une fonction with comme paramètres : chaineA et chaineB
+#qui retourne la concatenation de chaineA, une comma et enfin chaineB
+def concatWithComma(chaineA,chaineB):
+    #Je m'assure que chaineA soit bien un type str
+    stringifiedChaineA = str(chaineA)
+    #Je m'assure que chaineB soit bien un type str
+    stringifiedChaineB = str(chaineB)
+    #Retourner chaineA concaténé w/ un comma et chaineB
+    return stringifiedChaineA + ', ' + stringifiedChaineB
+
 
 #EXO 2:
 #Faire une fonction qui itere sur tous les index d'un tableau renvoyant un chaine de caractere
 #avec l'enssemble des occuration d'un chiffre e.g :
 #pour le tableau =[0,1,1,1,0,1,1,0,1]
 #la fonction (tableau,0) doit renvoyer "0,4,7" n'hesitez pas a implementer la premiere fonction
+def indexTableau(tab,el):
+    # On initialise un taleau pour stocker les index
+    tabIndex=[]
+    # On parcours la liste
+    for i in range(len(tab)):
+        # Si l'element du tableau est l'element qu'on recherche alors
+        if tab[i] == el:
+            # On ajoute l'index dans le tableau
+            tabIndex.append(i)
+        # Sinon on continue a parcourir le tableau
+    # On renvoie tabIndex
+    return tabIndex
+
+#EXO 2 correction:
+tableau =[0,1,1,1,0,1,1,0,1]
+#Definir une fonction qui prend une liste tableau et une variable x quelquonque
+def indexTableauBis(tableau,x):
+    #Initialisation i a 0
+    i = 0
+    #Definir chaineResultat en tant que string vide
+    chaineResultat = str
+     #On determine firstTurn a true
+    firstTurn = True
+    #Tant que i est inferieur a la longueur de tableau
+    while i < len(tableau):
+        #Si l'elt d'index i est egal a x
+        if tableau[i] == x:
+            #Si je suis au premier tour (firstTurn est true)
+            if firstTurn :
+                #Alors j'assigne str(i) a la chaineResultat
+                chaineResultat = str(i)
+                #On passe firstTurn a False
+                firstTurn = False
+            #Sinon on assigne resultat la fonction concatWithComma(chaineResultat, str(i))
+            chaineResultat = concatWithComma(chaineResultat, str(i))
+        #On incremente i de 1
+        i = i + 1
+    #Retourner chaineResultat
+    return chaineResultat
 
 
 #EXO 3:
 #Faire une fonction afficher un message
+def msg(message):
+    #afficher un message
+    print(message)
 
 #EXO 4:
 #Tel que
@@ -156,4 +213,19 @@ listeUtilisateur = {
 }
 #Ecrire une fonction login(userName,password,listUser) permettant d'afficher un message de connexion si
 #le combo user/password est bon
+
+def login(userName,password,listUser):
+    #Si l'identifiant est dans la liste utilisateur et que son mot de passe correspond alors
+    if userName in listUser and listUser[userName] == password:
+        #afficher ce message
+        msg("bravo vous etes sur internet")
+        #Renvoi
+        return
+    #Sinon
+    else:
+        #Afficher ce message
+        msg("Identifiant ou mot de pass icorrecte")
+        #Renvoi
+        return
+
 
