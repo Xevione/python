@@ -44,42 +44,84 @@ def verifAlign(tablo):
 
     
 def verifAlignBis(tablo):
+    tab = []
     for x in range(3):
         if tablo[x][0] == 'X' :
             if tablo[x][1] == 'X':
-                return (x,'1')
+                tab.append((x,'1'))
             elif tablo[x][2] == 'X':
-                return (x,'2')
+                tab.append((x,'2'))
         elif tablo[x][1] == 'X' :
             if tablo[x][2] == 'X':
-                return (x,'3')
+                tab.append((x,'3'))
         #Verification veticale pour les X
         if tablo[0][x] == 'X':
             if tablo[1][x] == 'X':
-                return ('4',x)
+                tab.append(('4',x))
             elif tablo[2][x] == 'X' :
-                return ('5',x)
+                tab.append(('5',x))
         elif tablo[1][x] == 'X':
             if tablo[2][x] == 'X' :
-                return ('6',x)
+                tab.append(('6',x))
     #Verification de la premiere diagonale pour X
     if tablo[0][0] == 'X' :
         if tablo[1][1] == 'X':
-            return '7'
+            tab.append('7')
         elif tablo[2][2] == 'X' :
-            return '8'
+            tab.append('8')
     elif tablo[1][1] == 'X' :
         if tablo[2][2] == 'X' :
-            return '9'
+            tab.append('9')
     #Verification de la deuxieme diagonale pour X
     if tablo[0][2] == 'X' :
         if tablo[1][1] == 'X':
-            return '10'
+            tab.append('10')
         elif tablo[2][0] == 'X' :
-            return '11'
+            tab.append('11')
     elif tablo[1][1] == 'X' :
         if tablo[2][0] == 'X' :
-            return '12'
+            tab.append('12')
+    return tab
+
+
+
+def verifAlignWin(tablo):
+    for x in range(3):
+        if tablo[x][0] == 'O' :
+            if tablo[x][1] == 'O':
+                return (x,'13')
+            elif tablo[x][2] == 'O':
+                return (x,'14')
+        elif tablo[x][1] == 'O' :
+            if tablo[x][2] == 'O':
+                return (x,'15')
+        #Verification veticale pour les O
+        if tablo[0][x] == 'O':
+            if tablo[1][x] == 'O':
+                return ('16',x)
+            elif tablo[2][x] == 'O' :
+                return ('17',x)
+        elif tablo[1][x] == 'O':
+            if tablo[2][x] == 'O' :
+                return ('18',x)
+    #Verification de la premiere diagonale pour O
+    if tablo[0][0] == 'O' :
+        if tablo[1][1] == 'O':
+            return '19'
+        elif tablo[2][2] == 'O' :
+            return '20'
+    elif tablo[1][1] == 'O' :
+        if tablo[2][2] == 'O' :
+            return '21'
+    #Verification de la deuxieme diagonale pour O
+    if tablo[0][2] == 'O' :
+        if tablo[1][1] == 'O':
+            return '22'
+        elif tablo[2][0] == 'O' :
+            return '23'
+    elif tablo[1][1] == 'O' :
+        if tablo[2][0] == 'O' :
+            return '24'
          
 
 def morpion() : 
@@ -91,7 +133,7 @@ def morpion() :
     tableau = [tab0,tab1,tab2]
     #on initialise un compteur a 0
     compteur = 0
-    #on affiche le morpion
+    contre = 0
     
     while compteur < 9 :
         joue = False
@@ -148,110 +190,280 @@ def morpion() :
 
         if verifAlign(tableau) == 'X' :
             print("Le player One a gagné")
-            return
-        elif verifAlign(tableau) == 'O':
-            print("Le player Two a gagné")
+            afficherMorpion(tableau) 
             return
         elif compteur == 9 :
             print('égalité')
             return
 
-        if verifAlignBis(tableau) == (0,'1'):
+        
+        if verifAlignWin(tableau) == (0,'13'):
             if tab0[2] == '9':
                 tab0[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (1,'1'):
+        elif verifAlignWin(tableau) == (1,'13'):
             if tab1[2] == '6':
                 tab1[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (2,'1'):
+        elif verifAlignWin(tableau) == (2,'13'):
             if tab2[2] == '3':
                 tab2[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (0,'2'):
+        elif verifAlignWin(tableau) == (0,'14'):
             if tab0[1] == '8':
                 tab0[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (1,'2'):
+        elif verifAlignWin(tableau) == (1,'14'):
             if tab1[1] == '5':
                 tab1[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (2,'2'):
+        elif verifAlignWin(tableau) == (2,'14'):
             if tab2[1] == '2':
                 tab2[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (0,'3'):
-            if tab0[0] == '7' :
+        elif verifAlignWin(tableau) == (0,'15'):
+            if tab0[0] == '1' :
                 tab0[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (1,'3'):
+        elif verifAlignWin(tableau) == (1,'15'):
             if tab1[0] == '4':
                 tab1[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == (2,'3'):
+        elif verifAlignWin(tableau) == (2,'15'):
             if tab2[0] == '1' :
                 tab2[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('4',0):
+        elif verifAlignWin(tableau) == ('16',0):
             if tab2[0] == '1' :
                 tab2[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('4',1):
+        elif verifAlignWin(tableau) == ('16',1):
             if tab2[1] == '2':
                 tab2[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('4',2):
+        elif verifAlignWin(tableau) == ('16',2):
             if tab2[2] == '3':
                 tab2[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('5',0):
+        elif verifAlignWin(tableau) == ('17',0):
             if tab1[0] == '4':
                 tab1[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('5',1):
+        elif verifAlignWin(tableau) == ('17',1):
             if tab1[1] == '5':
                 tab1[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('5',2):
+        elif verifAlignWin(tableau) == ('17',2):
             if tab1[2] == '6':
                 tab1[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('6',0):
+        elif verifAlignWin(tableau) == ('18',0):
             if tab0[0] == '7':
                 tab0[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('6',1):
+        elif verifAlignWin(tableau) == ('18',1):
             if tab0[1] == '8':
                 tab0[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == ('6',2):
+        elif verifAlignWin(tableau) == ('18',2):
             if tab0[2] == '9':
                 tab0[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '7':
+        elif verifAlignWin(tableau) == '19':
             if tab2[2] == '3':
                 tab2[2] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '8':
+        elif verifAlignWin(tableau) == '20':
             if tab1[1] == '5':
                 tab1[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '9':
-            if tab0[0] == '7':
-                tab0[0] = 'O'
+        elif verifAlignWin(tableau) == '21':
+            if tab1[1] == '5':
+                tab1[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '10':
+        elif verifAlignWin(tableau) == '22':
             if tab2[0] == '1':
                 tab2[0] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '11':
+        elif verifAlignWin(tableau) == '23':
             if tab1[1] == '5':
                 tab1[1] = 'O'
                 joue = True
-        elif verifAlignBis(tableau) == '12':
+        elif verifAlignWin(tableau) == '24':
             if tab0[2] == '9':
                 tab0[2] = 'O'
                 joue = True
+
+        elif verifAlignBis(tableau) and contre <= (len(verifAlignBis(tableau))):
+            print('a')
+            if verifAlignBis(tableau)[contre] == (0,'1') :
+                if tab0[2] == '9':
+                    tab0[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (1,'1') :
+                if tab1[2] == '6':
+                    tab1[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (2,'1') :
+                if tab2[2] == '3':
+                    tab2[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (0,'2') :
+                if tab0[1] == '8':
+                    tab0[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (1,'2') :
+                if tab1[1] == '5':
+                    tab1[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (2,'2') :
+                if tab2[1] == '2':
+                    tab2[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (0,'3') :
+                if tab0[0] == '7':
+                    tab0[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (1,'3') :
+                if tab1[0] == '4':
+                    tab1[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == (2,'3') :
+                if tab2[0] == '1':
+                    tab2[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('4',0) :
+                if tab2[0] == '1':
+                    tab2[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+            elif verifAlignBis(tableau)[contre] == ('4',1) :
+                if tab2[1] == '2':
+                    tab2[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('4',2) :
+                if tab2[2] == '3':
+                    tab2[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('5',0) :
+                if tab1[0] == '4':
+                    tab1[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('5',1) :
+                if tab1[1] == '5':
+                    tab1[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('5',2) :
+                if tab1[2] == '6':
+                    tab1[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('6',0) :
+                if tab0[0] == '7':
+                    tab0[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('6',1) :
+                if tab0[1] == '8':
+                    tab0[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == ('6',2) :
+                if tab0[2] == '9':
+                    tab0[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '7' :
+                if tab2[2] == '3':
+                    tab2[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '8' :
+                if tab1[1] == '5':
+                    tab1[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '9' :
+                if tab0[0] == '7':
+                    tab0[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '10' :
+                if tab2[0] == '1':
+                    tab2[0] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '11' :
+                if tab1[1] == '5':
+                    tab1[1] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+            elif verifAlignBis(tableau)[contre] == '12' :
+                if tab0[2] == '9':
+                    tab0[2] = 'O'
+                    contre = contre + 1
+                    joue = True
+                else:
+                    contre = contre + 1
+
+        
         if joue == False :
             if tab1[1] == '5':
                 tab1[1] = 'O'
@@ -272,15 +484,14 @@ def morpion() :
             elif tab2[1] == '2':
                 tab2[1] = 'O'
         
-        if verifAlign(tableau) == 'X' :
-            print("Le player One a gagné")
-            return
-        elif verifAlign(tableau) == 'O':
+        if verifAlign(tableau) == 'O':
             print("Le player Two a gagné")
+            afficherMorpion(tableau) 
             return
         compteur = compteur + 1
         print('---------------')
-        afficherMorpion(tableau)   
+        afficherMorpion(tableau)  
+        print(contre)
         
         
 morpion()
