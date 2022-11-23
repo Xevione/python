@@ -134,6 +134,7 @@ def morpion() :
     #on initialise un compteur a 0
     compteur = 0
     contre = 0
+    tableauContre = []
     
     while compteur < 9 :
         joue = False
@@ -196,6 +197,13 @@ def morpion() :
             print('égalité')
             return
 
+        for i in range (len(verifAlignBis(tableau))):
+            if verifAlignBis(tableau)[i] not in tableauContre:
+                tableauContre.append(verifAlignBis(tableau)[i])
+
+        print(tableauContre)
+        print(contre)
+        
         
         if verifAlignWin(tableau) == (0,'13'):
             if tab0[2] == '9':
@@ -294,174 +302,135 @@ def morpion() :
                 tab0[2] = 'O'
                 joue = True
 
-        elif verifAlignBis(tableau) and contre <= (len(verifAlignBis(tableau))):
-            print('a')
-            if verifAlignBis(tableau)[contre] == (0,'1') :
-                if tab0[2] == '9':
-                    tab0[2] = 'O'
-                    contre = contre + 1
-                    joue = True
+        if tableauContre :
+            if contre <= len(tableauContre) - 1:
+                print(tableauContre[contre])
+                if tableauContre[contre] == (0,'1') and tab0[2] == '9':
+                        tab0[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (1,'1') and tab1[2] == '6':
+                        tab1[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (2,'1') and tab2[2] == '3':
+                        tab2[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (0,'2') and tab0[1] == '8':
+                        tab0[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (1,'2') and tab1[1] == '5':
+                        tab1[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (2,'2') and tab2[1] == '2':
+                        tab2[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (0,'3') and tab0[0] == '7':
+                        tab0[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (1,'3') and tab1[0] == '4':
+                        tab1[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == (2,'3') and tab2[0] == '1':
+                        tab2[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('4',0) and tab2[0] == '1':
+                        tab2[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('4',1) and tab2[1] == '2':
+                        tab2[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('4',2) and tab2[2] == '3':
+                        tab2[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('5',0) and tab1[0] == '4':
+                        tab1[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('5',1) and tab1[1] == '5':
+                        tab1[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('5',2) and tab1[2] == '6':
+                        tab1[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('6',0) and tab0[0] == '7':
+                        tab0[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('6',1) and tab0[1] == '8':
+                        tab0[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == ('6',2) and tab0[2] == '9':
+                        tab0[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '7' and tab2[2] == '3':
+                        tab2[2] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '8' and tab1[1] == '5':
+                        tab1[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '9' and tab0[0] == '7':
+                        tab0[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '10' and tab2[0] == '1':
+                        tab2[0] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '11' and tab1[1] == '5':
+                        tab1[1] = 'O'
+                        contre = contre + 1
+                        joue = True
+                elif tableauContre[contre] == '12' and tab0[2] == '9':
+                        tab0[2] = 'O'
+                        contre = contre + 1
+                        joue = True
                 else:
                     contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (1,'1') :
-                if tab1[2] == '6':
-                    tab1[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (2,'1') :
-                if tab2[2] == '3':
-                    tab2[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (0,'2') :
-                if tab0[1] == '8':
-                    tab0[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (1,'2') :
-                if tab1[1] == '5':
-                    tab1[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (2,'2') :
-                if tab2[1] == '2':
-                    tab2[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (0,'3') :
-                if tab0[0] == '7':
-                    tab0[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (1,'3') :
-                if tab1[0] == '4':
-                    tab1[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == (2,'3') :
-                if tab2[0] == '1':
-                    tab2[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('4',0) :
-                if tab2[0] == '1':
-                    tab2[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-            elif verifAlignBis(tableau)[contre] == ('4',1) :
-                if tab2[1] == '2':
-                    tab2[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('4',2) :
-                if tab2[2] == '3':
-                    tab2[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('5',0) :
-                if tab1[0] == '4':
-                    tab1[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('5',1) :
-                if tab1[1] == '5':
-                    tab1[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('5',2) :
-                if tab1[2] == '6':
-                    tab1[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('6',0) :
-                if tab0[0] == '7':
-                    tab0[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('6',1) :
-                if tab0[1] == '8':
-                    tab0[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == ('6',2) :
-                if tab0[2] == '9':
-                    tab0[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '7' :
-                if tab2[2] == '3':
-                    tab2[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '8' :
-                if tab1[1] == '5':
-                    tab1[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '9' :
-                if tab0[0] == '7':
-                    tab0[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '10' :
-                if tab2[0] == '1':
-                    tab2[0] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '11' :
-                if tab1[1] == '5':
-                    tab1[1] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
-            elif verifAlignBis(tableau)[contre] == '12' :
-                if tab0[2] == '9':
-                    tab0[2] = 'O'
-                    contre = contre + 1
-                    joue = True
-                else:
-                    contre = contre + 1
+        elif playerOne == '7':
+            if tab0[1] == '8':
+                tab0[1] = 'O'
+                joue = True
+            elif tab1[0] == '4':
+                tab1[0] = 'O'
+                joue = True
+        elif playerOne == '9':
+            if tab0[1] == '8':
+                tab0[1] = 'O'
+                joue = True
+            elif tab1[2] == '6':
+                tab1[2] = 'O'
+                joue = True
+        elif playerOne == '1':
+            if tab2[1] == '2':
+                tab2[1] = 'O'
+                joue = True
+            elif tab1[0] == '4':
+                tab1[0] = 'O'
+                joue = True
+        elif playerOne == '3':
+            if tab2[1] == '2':
+                tab2[1] = 'O'
+                joue = True
+            elif tab1[2] == '6':
+                tab1[2] = 'O'
+                joue = True
 
         
         if joue == False :
@@ -491,6 +460,7 @@ def morpion() :
         compteur = compteur + 1
         print('---------------')
         afficherMorpion(tableau)  
+        print(tableauContre)
         print(contre)
         
         
