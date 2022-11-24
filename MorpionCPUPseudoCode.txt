@@ -1,0 +1,393 @@
+DEBUT
+
+
+on définit la fonction afficherMorpion
+on affiche le tableau 1, 2, 3
+
+on définit la fonction verifAlign
+on fait une boucle pour vérifier chaque ligne horizontale puis verticale
+on vérifie si les X ont un alignement horizontale
+on renvoie X
+on vérifie si les O ont un alignement horizontale
+on renvoie O
+On vérifie la premère diagonale pour X
+on renvoie X
+on vérifie la première diagonale pour O
+on renvoie O
+on vérifie la deuxième diagonale pour X
+on renvoie X
+On vérifie la deuxième diagonale pour O
+on renvoie O
+
+on définit la fonction verifAlignBis
+on vérifie si les X ont un alignement verticale
+on vérifie si les X ont un alignement pour la première diagonale
+on vérifie si les X ont un alignement pour la deuxième diagonale
+
+oon définit la fonction verifAlignWin
+on vérifie si les O ont un alignement verticale
+on vérifie si les O ont un alignement pour la première diagonale
+on vérifie si les O ont un alignement pour la deuxième diagonale
+
+on définit la fonction morpion
+on initialise les tableaux du morpion à afficher
+on stock tout les tableaux dans un tableau
+on initialise un compteur à 0
+tant que le compteur est inférieur à 9
+    la variable joueContre = True
+    la variable joue = à false
+    on récupère la valeur du joueur1 avec un input
+    si le joueur1 utilise 1
+        alors si dans le tableau 3 la première valeur vaut 1
+            alors remplacer 1 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 2
+        alors si dans le tableau 3 la deuxième valeur vaut 2
+            alors remplacer 2 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 3
+        alors si dans le tableau 3 la troisième valeur vaut 3
+            alors remplacer 3 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 4
+        alors si dans le tableau 2 la première valeur vaut 4
+            alors remplacer 4 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 5
+        alors si dans le tableau 2 la deuxième valeur vaut 5
+            alors remplacer 5 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 6 
+        alors si dans le tableau 2 la troisième valeur vaut 6
+            alors remplacer 6 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur utilise 7 
+        alors si dans le tableau 1 la première valeur vaut 7
+            alors remplacer 7 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    Si le joueur1 utilise 8 
+        alors si dans le tableau 1 la deuxième valeur vaut 8
+            alors remplacer 8 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    si le joueur1 utilise 9
+        alors si dans le tableau 1 la troisième valeur vaut 9
+            alors remplacer 9 par X
+        sinon écrire "emplacement déjà utilisé"
+
+    ajouter 1 au compteur
+    afficher le tableau
+
+    si varifAlign vaut X
+        écrire "le playerOne a gagné"
+        afficher le tableau
+        retour
+    si le compteur vaut 9 
+        alors ecrire "Égalité"
+        retour
+    mettre dans une liste tout les messages de verifAlignBis
+
+    afficher (tableauContre)
+    afficher contre
+
+
+    si la fonction verifAlignWin vaut (0,'13')
+        alors si dans le premier tableau la troisième valeur vaut 9
+        alors on remplace 9 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (1,'13')
+        alors si dans le deuxième tableau la troisième valeur vaut 6
+        alors on remplace 6 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (2 '13')
+        alors si dans le troisième tableau la troisième valeur vaut 3
+        alors on remplace 3 par O 
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (0, '14')
+        alors si dans le premier tableau la deuxième valeur vaut 8
+        alors on remplace 8 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (1, '14')
+        alors si dans le deuxième tableau la deuxième valeur vaut 5
+        alors on remplace 5 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (2, '14')
+        alors si dans le troisième tableau la deuxième valeur vaut 2
+        alors on remplace 2 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (0,'15')
+        alors si dans le premier tableau la première valeur vaut 7
+        alors on remplace 7 par O 
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (1, '15')
+        alors si dans le deuxième tableau la première valeur vaut 4
+        alors on remplcae 4 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut (2, '15')
+        alors si dans le troisième tableau la première valeur vaut 1
+        alors on remplace 1 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('16', 0)
+        alors si dans le troisième tableau la première valeur vaut 1
+        alors on remplace 1 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('16', 1)
+        alors si dans le troisième tableau le deuxième valeur vaut 2
+        alors on remplace 2 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('16', 2)
+        alors si dans le troisième tableau la troisième valeur vaut 3
+        alors on remplace 3 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('17', 0)
+        alors si dans le deuxième tableau la première valeur vaut 4
+        alors on remplace 4 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('17, 1)
+        alors si dans le deuxième tableau la deuxième valeur vaut 5
+        alors on remplace 5 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('17', 2)
+        alors si dans le deuxième tableau la deuxième valeur vaut 6
+        alors on remplace 6 par O
+    la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('18', 0)
+        alors si dans le premier tableau la première valeur veut 7
+        alors on remplace 7 par 0
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('18', 1)
+        alors si dans le premier tableau le deuxième valeur vaut 8
+        alors on remplace 8 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut ('18', 2)
+        alors si dans le premier tableau la troisième valeur vaut 9
+        alors on remplace 9 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '19'
+        alors si dans le troisième tableau la troisième valeur vaut 3 
+        alors on remplace 3 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '20'
+        alors si dans le deuxième tableau la deuxième valeur vaut 5
+        alors on remplace 5 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '21'
+        alors si dans le deuxième tableau la deuxième valeur vaut 5
+        alors on remplace 5 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '22'
+        alors si dans le troisième tableau la première valeur vaut 1
+        alors on remplace 1 par On
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '23'
+        alors si dans le deuxième tableau la deuxième valeur vaut 5
+        alors on remplace 5 par O
+        la valeur 'joue' vaut True
+    si la fonction verifAlignWin vaut '24'
+        alors si dans le premier tableau la troisième valeur vaut 9
+        alors on remplace 9 par O
+        la valeur 'joue' vaut True
+
+    Si dans la fonction tabeauContre
+        Si contre est inférieur ou égale à len(tableauContre) - 1
+            tant que 'joueContre'
+            écrire (tableauContre[contre])
+            si tableauContre[contre] == (0,'1') et la troisième valeur du premier tableau vaut 9
+                alors on remplace 9 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (1,'1') et la troisième valeur du deuxième tableau vaut 6
+                alors on remplace 6 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (2,'1') et la troisième valeur du troisième tableau vaut 3
+                alors on remplace 3 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (0, '2') et la deuxième valeur du premier tableau vaut 8 
+                alors on remplace 8 par 0 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] ==  (1,'2') et la deuxième valeur du deuxième tableau vaut 5 
+                alors on remplace 5 par O 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (2, '2') et la deuxième valeur du troisième tableau vaut 2
+                alors on remplace 2 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (0, '3') et la première valeur du premier tableau vaut 7
+                alors on remplace 7 par 0 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (1, '3') et la première valeur du deuxième tableau vaut 4
+                alors on remplace 4 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == (2, '3') et la première valeur du troisième tableau vaut 1
+                alors on remplace 1 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('4', 0) et la première valeur du troisième tableau vaut 1
+                alors on remplace 1 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('4', 1) et la deuxième valeur du troisième tableau vaut 2
+                alors on remplace 2 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('4', 2) et la troisième valeur du troisième tableau vaut 3
+                alors on remplace 3 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('5', 0) et la première valeur du deuxième tableau vaut 4
+                alors on remplace 4 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('5', 1) et la deuxième valeur du deuxième tableau vaut 5
+                alors on remplace 5 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('5', 2) et la troisième valeur du deuxième tableau vaut 6
+                alors on remplace 6 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('6', 0) et la première valeur du troisième tableau vaut 7
+                alors on remplace 7 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('6', 1) et la deuxième valeur du troisième tableau vaut 8
+                alors on remplace 8 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == ('6', 2) et la troisième valeur du troisième tableau vaut 9
+                alors on remplace 9 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tabeauContre[contre] == 7 et la troisième valeur du troisième tableau vaut 3
+                alors on remplace 3 par O 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == 8 et la deuxième valeur du deuxième tableau vaut 5 
+                alors on remplace 5 par 0
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == 9 et la première valeur du premier tableau vaut 7 
+                alors on remplace 7 par O
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == 10 et la première valeur du troisième tableau vaut 1
+                alors on remplace 1 par O 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == 11 et la deuxième valeur du deuxième tableau vaut 5 
+                alors on remplace 5 par O 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            si tableauContre[contre] == 12 et la troisième valeur du premier tableau vaut 9
+                alors on remplace 9 par O 
+                on ajoute 1 à la valeur 'contre'
+                la valeur 'joue' vaut True
+                la valeur 'joueContre' vaut False
+            sinon on ajoute 1 à la valeur 'contre'
+
+        si le joueur1 joue 7
+            si la deuxième valeur du premier tableau vaut 8
+                alors on remplace 8 par O
+                la valeur 'joue' vaut True
+            si la première valeur du deuxième tableau vaut 4
+                alors on remplace 4 par O 
+                la valeur 'joue' vaut True
+        si le joueur1 joue 9
+            si la deuxième valeur du premier tableau vaut 8
+                alors on remplace 8 par O
+                la valeur 'joue' vaut True
+            si la troisième valeur du deuxième tableau vaut 6
+                alors on remplace 6 par O 
+                la valeur 'joue' vaut True
+        si le joueur1 joue 1
+            si la deuxième valeur du troisième tableau vaut 2
+                alors on remplace 2 par O
+                la valeur 'joue' vaut True
+            si la première valeur du deuxième tableau vaut 4 
+                alors on remplace 4 par O
+                la valeur 'joue' vaut True
+        si le joueur1 joue 3
+            si la deuxième valeur du troisième tableau vaut 2
+                alors on remplace 2 par O
+                la valeur 'joue' vaut True
+            si la troisième valeur du deuxième tableau vaut 6
+                alors on remplace 6 par O 
+                la valeur 'joue' vaut True
+
+            si la valeur 'joue' == false
+                si la deuxième valeur du deuxième tableau vaut 5
+                    alors on remplace 5 par O
+                si la troisième valeur du premier tableau vaut 9
+                    alors on remplace 9 par O 
+                si la première valeur du premier tableau vaut 7
+                    alors on remplace 7 par O 
+                si la troisième valeur du troisième tableau vaut 3
+                    alors on remplace 3 par O 
+                si la première valeur du troisième tableau vaut 1
+                    alors on remplace 1 par O 
+                si la deuxièmevaleur du premier tableau vaut 8
+                    alors on remplace 8 par O 
+                si la première valeur du deuxième tableau vaut 4
+                    alors on remplace 4 par O 
+                si la troisième valeur du deuxième tableau vaut 6
+                    alors on remplace 6 par O
+                si la deuxième valeur du troisième tableau vaut 2
+                    alors on remplace 2 par O 
+                
+            si verifAlign(tableau) == O 
+                on écrit "le playerTwo a gagné"
+                on affiche la fonction afficherMorpion
+                retour
+            on ajoute 1 à la valeur 'compteur'
+            on écrit "------------"
+            on affiche la fonction afficherMorpion
+            on écrit (tableauContre)
+            on écrit (contre)
+
+FIN
+
+
+       
+       
+       
+       
+       
+       
+       
+ 
